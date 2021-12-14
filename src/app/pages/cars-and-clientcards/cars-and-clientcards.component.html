@@ -1,0 +1,8 @@
+<app-searchbar (onSearch)="applySearch($event)"></app-searchbar>
+
+<div style="display: flex; flex-direction: row;">
+  <div class="spacer"></div>
+  <div class="table"><app-table [cars]="cars"></app-table></div>
+  <div class="table"><app-clientcard-table [clientCards]="clientCards"></app-clientcard-table></div>
+  <div class="spacer"></div>
+</div>

@@ -1,0 +1,12 @@
+<div class="box">
+  <app-clientcard-toolbar
+    (onCreate)="openCreationModal()"
+    (onSort)="getClientCards($event)"
+  >
+  </app-clientcard-toolbar>
+  <app-clientcard-table
+    [clientCards]="clientCards"
+    (onDelete)="openDeleteModal($event)"
+    (onUpdate)="openCreationModal($event)"
+  ></app-clientcard-table>
+</div>

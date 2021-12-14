@@ -1,0 +1,9 @@
+@import "src/_colors.scss";
+// :host {
+//   background: $primary-dark;
+// }
+form {
+  display: flex;
+  flex-direction: column;
+}
+

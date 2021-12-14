@@ -1,0 +1,78 @@
+<form [formGroup]="clientCardCreationForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Nume</mat-label>
+    <input
+      type="string"
+      formControlName="nume"
+      matInput
+      placeholder="Ex. Stan"
+    />
+    <mat-error *ngIf="nume?.hasError('required')"
+      >Campul este obligatoriu</mat-error
+    >
+    <mat-error *ngIf="nume?.hasError('pattern')"
+      >Campul contine caractere interzise</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prenume</mat-label>
+    <input
+      formControlName="prenume"
+      type="string"
+      matInput
+      placeholder="Ex. Antonio"
+    />
+    <mat-error *ngIf="prenume?.hasError('required')"
+      >Campul este obligatoriu</mat-error
+    >
+    <mat-error *ngIf="prenume?.hasError('pattern')"
+      >Campul contine caractere interzise</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>CNP</mat-label>
+    <input
+      formControlName="CNP"
+      type="number"
+      matInput
+      placeholder="Ex. 1231231231231"
+    />
+    <mat-error *ngIf="CNP?.hasError('required')"
+      >Campul este obligatoriu</mat-error
+    >
+    <mat-error *ngIf="CNP?.hasError('min') || CNP?.hasError('max')"
+      >CNP-ul trebuie sa fie de 13 cifre</mat-error
+    >
+    <mat-error *ngIf="CNP?.hasError('exclusionList')"
+      >CNP-ul respectiv este deja folosit</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Data Nasterii</mat-label>
+    <input
+      formControlName="data_nasterii"
+      matInput
+      [min] = "minDate"
+      [max] = "maxDate"
+      placeholder="24.02.2002"
+      color="primary"
+      [matDatepicker]="dp"
+    />
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp color="primary"></mat-datepicker>
+    <mat-error *ngIf="data_nasterii?.hasError('required')"
+      >Campul este obligatoriu</mat-error
+    >
+  </mat-form-field>
+
+  <button
+    mat-button
+    (click)="submit()"
+    *ngIf="clientCardCreationForm.valid"
+  >
+    Submit
+  </button>
+  <button mat-button (click)="close()">Close</button>
+</form>

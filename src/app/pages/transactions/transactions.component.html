@@ -1,0 +1,12 @@
+<div class="box">
+  <app-transactions-toolbar (onCreate)="openCreationModal()"
+  (onFilter)="openFilterModal()"
+  (onUnFilter)="refresh()"
+  [filtered]="filtered">
+  </app-transactions-toolbar>
+  <app-transactions-table
+    [transactions]="transactions"
+    (onDelete)="openDeleteModal($event)"
+    (onUpdate)="openUpdateModal($event)"
+  ></app-transactions-table>
+</div>

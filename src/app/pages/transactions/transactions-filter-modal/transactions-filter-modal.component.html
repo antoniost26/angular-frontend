@@ -1,0 +1,29 @@
+<form [formGroup]="transactionFilterForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Suma inceput</mat-label>
+    <input
+      formControlName="start"
+      type="number"
+      matInput
+      placeholder="Ex. 2022"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Suma sfarsit</mat-label>
+    <input
+      formControlName="end"
+      type="number"
+      matInput
+      placeholder="Ex. 140000"
+    />
+  </mat-form-field>
+
+  <button
+    mat-button
+    (click)="submit()"
+  >
+    Submit
+  </button>
+  <button mat-button (click)="close()">Close</button>
+</form>

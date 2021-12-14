@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Generare aleatorie</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Entitati create</mat-label>
+      <input type="number" matInput formControlName="number">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Close</button>
+  <button mat-button (click)="generate()" mat-dialog-close cdkFocusInitial>Generate</button>
+</div>

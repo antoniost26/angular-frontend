@@ -1,0 +1,29 @@
+@use "~@angular/material" as mat;
+@import "src/custom-theme";
+
+:host ::ng-deep html,
+body {
+  background-color: $primary-dark;
+}
+
+.mat-drawer {
+  background-color: mat.get-color-from-palette($frontend-primary);
+  width: 260px;
+  border-right: 0.1em solid #707a8c;
+}
+
+.mat-drawer-container {
+  background-color: mat.get-color-from-palette($frontend-primary);
+  height: 100%;
+  border-right: 0.1em solid #707a8c;
+}
+.mat-drawer-content {
+  background-color: mat.get-color-from-palette($frontend-primary);
+}
+.box {
+  border-right: 0.1em solid #707a8c;
+  border-bottom: 0.1em solid #707a8c;
+}
+.sidenav {
+  border-right: 0.1em solid #707a8c;
+}

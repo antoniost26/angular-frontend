@@ -1,0 +1,20 @@
+@import "src/_colors";
+
+mat-toolbar {
+  // background-color: $primary-dark;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+mat-icon {
+  color: #dadada;
+}
+
+h2 {
+  color: #dadada;
+  text-align: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

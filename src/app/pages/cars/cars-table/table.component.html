@@ -1,0 +1,96 @@
+<!-- <div class="container-fluid page">
+  <div class="page__box p-3 mt-2">Cars</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data position-absolute"> -->
+<div class="container">
+  <mat-table #table [dataSource]="carsSource">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+    </ng-container>
+
+    <!-- Model Column -->
+    <ng-container matColumnDef="model">
+      <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.model }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Year Column -->
+    <ng-container matColumnDef="anul">
+      <mat-header-cell *matHeaderCellDef> Anul </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.an_achizitie }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Action buttons -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="actionbuttons">
+        <button mat-icon-button [disableRipple]="true">
+          <mat-icon
+            class="editbutton"
+            color="accent"
+            (click)="onUpdate.emit(element)"
+            >edit</mat-icon
+          >
+        </button>
+        <button mat-icon-button [disableRipple]="true">
+          <mat-icon
+            class="deletebutton"
+            color="warn"
+            (click)="onDelete.emit(element.id)"
+            >delete</mat-icon
+          >
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column -->
+    <ng-container matColumnDef="expandedDetail">
+      <mat-cell *matCellDef="let detail">
+        Masina cu modelul {{ detail.element.model }}, anul achizitiei
+        {{ detail.element.an_achizitie }}, numarul de kilometri
+        {{ detail.element.nr_km }},
+        {{
+          detail.element.in_garantie
+            ? "este in garantie"
+            : "nu este in garantie"
+        }}
+        si totalul sumei pentru manopera
+        {{ detail.element.suma_manopera ? detail.element.suma_manopera : "0" }}
+        lei.
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      matRipple
+      class="element-row"
+      [class.expanded]="expandedElement == row"
+      (click)="expandedElement = row"
+    ></mat-row>
+    <mat-row
+      *matRowDef="
+        let row;
+        columns: ['expandedDetail'];
+        when: isExpansionDetailRow
+      "
+      [@detailExpand]="
+        row.element == expandedElement ? 'expanded' : 'collapsed'
+      "
+      style="overflow: hidden"
+    >
+    </mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons hidePageSize>
+  </mat-paginator>
+  <!-- </div>
+    </div>
+  </div>
+</div> -->
+</div>

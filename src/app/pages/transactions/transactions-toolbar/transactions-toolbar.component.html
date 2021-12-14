@@ -1,0 +1,59 @@
+<mat-toolbar>
+  <button
+    mat-raised-button
+    color="accent"
+    class="createbutton"
+    (click)="onCreate.emit()"
+  >
+    <mat-icon>add</mat-icon>
+    Create
+  </button>
+  <button
+    *ngIf="!filtered"
+    mat-raised-button
+    color="accent"
+    class="createbutton"
+    (click)="onFilter.emit()"
+  >
+    <mat-icon>filter_list</mat-icon>
+    Filtreaza dupa suma
+  </button>
+  <button
+  *ngIf="filtered"
+  mat-raised-button
+  color="accent"
+  class="createbutton"
+  (click)="onUnFilter.emit()">
+    <mat-icon>filter_list</mat-icon>
+    Afiseaza lista fara filtru
+  </button>
+  <button
+    mat-raised-button
+    color="accent"
+    class="createbutton"
+    (click)="onDeleteByDateRange.emit()"
+  >
+    <mat-icon>delete_outline</mat-icon>
+    Sterge dupa interval de zile
+  </button>
+  <!-- <div class="searchbar">
+    <input
+      matInput
+      type="text"
+      autoSizeInput
+      [(ngModel)]="searchKey"
+      (ngModelChange)="liveSearch($event)"
+      placeholder="Search"
+      autocomplete="on"
+    />
+    <button
+      mat-button
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="emptySearch()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div> -->
+</mat-toolbar>

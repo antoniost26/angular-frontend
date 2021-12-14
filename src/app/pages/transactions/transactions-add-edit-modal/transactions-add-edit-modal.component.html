@@ -1,0 +1,59 @@
+<form [formGroup]="transactionCreationForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Id masina</mat-label>
+    <mat-select formControlName="car_id">
+      <mat-option *ngFor="let car of data.cars" [value]="car.id">
+        {{ car.id }} : {{ car.model }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="carId?.hasError('required')"
+      >Campul este obligatoriu.</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Id card client</mat-label>
+    <mat-select formControlName="client_card_id">
+      <mat-option [value]="null">Fara card client</mat-option>
+      <mat-option
+        *ngFor="let clientCard of data.clientCards"
+        [value]="clientCard.id"
+      >
+        {{ clientCard.id }} : {{ clientCard.nume }} {{ clientCard.prenume }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Suma piese</mat-label>
+    <input
+      formControlName="components_total"
+      type="number"
+      matInput
+      placeholder="Ex. 2022"
+    />
+    <mat-error *ngIf="components_total?.hasError('required')"
+      >Campul este obligatoriu.</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Suma manopera</mat-label>
+    <input
+      formControlName="service_total"
+      type="number"
+      matInput
+      placeholder="Ex. 140000"
+    />
+    <mat-error *ngIf="service_total?.hasError('required')"
+      >Campul este obligatoriu.</mat-error
+    >
+  </mat-form-field>
+
+  <button
+    mat-button
+    (click)="submit()"
+    *ngIf="transactionCreationForm.valid"
+  >
+    Submit
+  </button>
+  <button mat-button (click)="close()">Close</button>
+</form>

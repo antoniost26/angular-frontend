@@ -1,0 +1,86 @@
+<!-- <div class="container-fluid page">
+  <div class="page__box p-3 mt-2">Cars</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data position-absolute"> -->
+<div class="container">
+  <mat-table #table [dataSource]="clientCardSource">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+    </ng-container>
+
+    <!-- Model Column -->
+    <ng-container matColumnDef="nume">
+      <mat-header-cell *matHeaderCellDef> Nume </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.nume }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Year Column -->
+    <ng-container matColumnDef="prenume">
+      <mat-header-cell *matHeaderCellDef> Prenume </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.prenume }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Action buttons -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button color="accent" [disableRipple]="true">
+          <mat-icon class="editbutton" (click)="onUpdate.emit(element)"
+            >edit</mat-icon
+          >
+        </button>
+        <button mat-icon-button color="warn" [disableRipple]="true">
+          <mat-icon class="deletebutton" (click)="onDelete.emit(element.id)"
+            >delete</mat-icon
+          >
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column -->
+    <ng-container matColumnDef="expandedDetail">
+      <mat-cell *matCellDef="let detail">
+        Cardul client apartinand lui
+        {{ detail.element.nume }}
+        {{ detail.element.prenume }} avand CNP-ul {{ detail.element.CNP }},
+        nascut in data de
+        {{ detail.element.data_nasterii | date: "dd.MM.yyyy" }}, inregistrat la
+        data de {{ detail.element.data_inregistrarii | date: "dd.MM.yyyy" }}, cu
+        reducerea totala adunata a {{ detail.element.reducere_client }} lei.
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      matRipple
+      class="element-row"
+      [class.expanded]="expandedElement == row"
+      (click)="expandedElement = row"
+    ></mat-row>
+    <mat-row
+      *matRowDef="
+        let row;
+        columns: ['expandedDetail'];
+        when: isExpansionDetailRow
+      "
+      [@detailExpand]="
+        row.element == expandedElement ? 'expanded' : 'collapsed'
+      "
+      style="overflow: hidden"
+    >
+    </mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons hidePageSize>
+  </mat-paginator>
+  <!-- </div>
+    </div>
+  </div>
+</div> -->
+</div>

@@ -1,0 +1,43 @@
+<form [formGroup]="carCreationForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Model</mat-label>
+    <input formControlName="make" matInput placeholder="Ex. Audi" />
+    <mat-error *ngIf="make?.hasError('required')"
+      >Campul este obligatoriu</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>An fabricatie</mat-label>
+    <input
+      formControlName="year"
+      type="number"
+      matInput
+      placeholder="Ex. 2022"
+    />
+    <mat-error *ngIf="year?.hasError('required')"
+      >Campul este obligatoriu.</mat-error
+    >
+    <mat-error *ngIf="year?.hasError('min') || year?.hasError('max')">
+      Numarul trebuie sa fie cuprins intre 1900 si 2021
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Kilometri</mat-label>
+    <input
+      formControlName="km"
+      type="number"
+      matInput
+      placeholder="Ex. 140000"
+    />
+    <mat-error *ngIf="km?.hasError('required')"
+      >Campul este obligatoriu</mat-error
+    >
+  </mat-form-field>
+
+  <button mat-button (click)="submit()" *ngIf="carCreationForm.valid">
+    Submit
+  </button>
+  <button mat-button (click)="close()">Close</button>
+</form>

@@ -1,0 +1,29 @@
+.searchbar {
+  width: 60%;
+  position: relative;
+  margin-left: 0.2em;
+  padding: 0.3em 0.6em;
+  color: #dadada;
+  border-radius: 0.1em;
+}
+
+input {
+  height: 2.6em;
+  border: 0.1em solid #707a8c;
+  border-radius: 0.3em;
+  ::placeholder {
+    color: #dadada;
+  }
+}
+
+.createbutton {
+  margin-right: 1em;
+  font-size: 0.7em;
+  text-align: justify;
+
+  ::ng-deep > *:first-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

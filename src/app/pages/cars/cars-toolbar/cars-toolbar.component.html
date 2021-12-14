@@ -1,0 +1,44 @@
+<mat-toolbar>
+  <button
+    mat-raised-button
+    class="createbutton"
+    color="accent"
+    (click)="onCreate.emit()"
+  >
+    <mat-icon>add</mat-icon>
+    Create
+  </button>
+
+  <button
+    mat-raised-button
+    class="createbutton"
+    color="accent"
+    (click)="onGenerate.emit()"
+  >
+    <mat-icon>add</mat-icon>
+    Generate
+  </button>
+
+  <button
+    *ngIf="!sorted"
+    mat-raised-button
+    color="accent"
+    class="createbutton"
+    (click)="sort('customSort/')"
+  >
+    <mat-icon>sort</mat-icon>
+    Sorteaza dupa suma manoperei
+  </button>
+  <button
+    *ngIf="sorted"
+    mat-raised-button
+    color="accent"
+    class="createbutton"
+    (click)="sort('')"
+  >
+    <mat-icon>sort</mat-icon>
+    Afisati datele nesortate
+  </button>
+
+
+</mat-toolbar>

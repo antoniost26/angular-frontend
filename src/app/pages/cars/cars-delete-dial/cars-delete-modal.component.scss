@@ -1,0 +1,11 @@
+@import "src/_colors";
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+// ::ng-deep {
+//   background: $primary-dark;
+// }
+
+

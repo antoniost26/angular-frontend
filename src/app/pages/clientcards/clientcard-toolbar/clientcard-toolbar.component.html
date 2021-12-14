@@ -1,0 +1,31 @@
+<mat-toolbar>
+  <button
+    mat-raised-button
+    color="accent"
+    class="createbutton"
+    (click)="onCreate.emit()"
+  >
+    <mat-icon>add</mat-icon>
+    Create
+  </button>
+  <button
+    *ngIf="!sorted"
+    mat-raised-button
+    color="accent"
+    class="createbutton"
+    (click)="sort('customSort/')"
+  >
+    <mat-icon>sort</mat-icon>
+    Sorteaza dupa suma reducerilor
+  </button>
+  <button
+    *ngIf="sorted"
+    mat-raised-button
+    color="accent"
+    class="createbutton"
+    (click)="sort('')"
+  >
+    <mat-icon>sort</mat-icon>
+    Afisati cardurile nesortate
+  </button>
+</mat-toolbar>

@@ -1,0 +1,164 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "~@angular/material" as mat;
+// Plus imports for other components in your app.
+@import "src/_colors";
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+$custom-palette: (
+  50: #ffffff,
+  300: #646879,
+  400: #3c3e48,
+  500: #191c28,
+  600: #161924,
+  700: #12141e,
+  800: #0e1118,
+  900: #08090f,
+  A200: #2058ff,
+  A400: #003bec,
+  A700: #0932aa,
+  A100: #191c28,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$frontend-primary: mat.define-palette($custom-palette);
+$frontend-accent: mat.define-palette($custom-palette, A700, A100, A400, A200);
+
+// The warn palette is optional (defaults to red).
+$frontend-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$frontend-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $frontend-primary,
+      accent: $frontend-accent,
+      warn: $frontend-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($frontend-theme);
+
+@import "./colors";
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.mat-dialog-container {
+  background: mat.get-color-from-palette($frontend-primary);
+  color: $secondary-light;
+}
+
+mat-dialog .mat-dialog {
+  color: $secondary-light;
+}
+
+mat-label {
+  color: $secondary-light;
+}
+
+.mat-form-field {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: $secondary-light;
+}
+
+.mat-select-value,
+.mat-input-element::placeholder {
+  color: $secondary-light;
+}
+.mat-input-element {
+  caret-color: mat.get-color-from-palette($frontend-accent, "A200");
+}
+
+.mat-form-field-underline,
+.mat-form-field-ripple {
+  /*change color of underline*/
+  background-color: mat.get-color-from-palette($frontend-accent, "A200");
+}
+
+.mat-table {
+  background: mat.get-color-from-palette($frontend-primary);
+}
+
+.mat-calendar-table-header,
+.mat-calendar-body-label,
+.mat-datepicker-content,
+.mat-calendar-body-cell-content {
+  background: mat.get-color-from-palette($frontend-accent, "A100");
+  color: mat.get-color-from-palette($frontend-accent, "A100-contrast");
+}
+
+.delete {
+  background: mat.get-color-from-palette($frontend-warn);
+  color: $border-light;
+}
+
+.mat-toolbar {
+  background: mat.get-color-from-palette($frontend-primary);
+}
+
+.button {
+  margin-bottom: 0.5em;
+  color: $secondary-light;
+  .hover {
+    background: transparent;
+  }
+}
+
+h1 {
+  font-size: 3em;
+
+  & > span {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    max-width: 60%;
+    opacity: 0.6;
+  }
+}
+
+h2 {
+  font-size: 2em;
+}
+
+.mat-paginator {
+  background: mat.get-color-from-palette($frontend-primary);
+  color: $secondary-light;
+  border-top: 0.1em solid #707a8c;
+}
+
+.mat-icon-button.mat-button-disabled.mat-button-disabled {
+  color: #5c5e66;
+}

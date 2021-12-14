@@ -1,0 +1,10 @@
+<div class="box">
+  <app-cars-toolbar
+    (onCreate)="openCreationModal()"
+    (onGenerate)="openGenerationModal()"
+    (onSort)="getCars($event)"
+  >
+  </app-cars-toolbar>
+  <app-table [cars]="cars" (onDelete)="openDeleteModal($event)"
+  (onUpdate)="openUpdateModal($event)"></app-table>
+</div>
